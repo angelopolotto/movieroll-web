@@ -1,0 +1,8 @@
+<div class="main-div">
+  <app-header (OnThemeChange)="onSetTheme($event)"></app-header>
+    <router-outlet></router-outlet>
+  <app-footer></app-footer>
+  <div #primary class="mat-button mat-primary" style="display:none"></div>
+  <div #accent class="mat-button mat-accent" style="display:none"></div>
+  <div #warn class="mat-button mat-warn" style="display:none"></div>
+</div>

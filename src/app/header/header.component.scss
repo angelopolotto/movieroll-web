@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.circle-base {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.deeppurple-button {
+  background-color: mat-color(mat-palette($mat-deep-purple)) !important;
+}
+
+.indigo-button {
+  background: mat-color(mat-palette($mat-indigo)) !important;
+}
+
+.pink-button {
+  background: mat-color(mat-palette($mat-pink)) !important;
+}
+
+.purple-button {
+  background: mat-color(mat-palette($mat-purple)) !important;
+}

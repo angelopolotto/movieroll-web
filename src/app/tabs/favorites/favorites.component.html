@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <!--container row-->
+  <div
+    fxFlex="80%"
+    fxFlex.xs="90%" fxFlex.md="60%" fxFlex.lg="50%"
+    fxLayout="row wrap"
+    fxLayoutGap="0.5%" fxLayoutAlign="space-around">
+    <app-empty message="{{messageService.textsUser.favoritesEmpty}}" [hidden]="favorites.length"></app-empty>
+    <div
+      fxLayoutAlign="space-around none"
+      *ngFor="let favorite of favorites">
+      <app-feed-item [feedItem]="favorite"
+                     favButtonText="{{messageService.textsUser.watched}}"
+                     (OnAddToFav)="removeToFavorites(favorite)"></app-feed-item>
+    </div>
+  </div>
+</div>

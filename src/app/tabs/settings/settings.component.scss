@@ -1,0 +1,9 @@
+@import "../../../styles/variables";
+@include card-big-header
+@include center-vertical
+@include form-one-field-line
+
+.mat-card {
+  margin-top: 18%;
+  margin-bottom: 18%;
+}

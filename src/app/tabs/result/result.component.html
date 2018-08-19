@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <!--container row-->
+  <div
+    fxFlex="80%"
+    fxFlex.xs="90%" fxFlex.md="60%" fxFlex.lg="50%"
+    fxLayout="row wrap"
+    fxLayoutGap="0.5%" fxLayoutAlign="space-around">
+    <div
+      fxLayoutAlign="space-around none"
+      *ngFor="let result of feed.result">
+      <app-feed-item [feedItem]="result" (OnAddToFav)="addToFavorites(result)"></app-feed-item>
+    </div>
+  </div>
+</div>
+<mat-paginator
+  [length]="feed.result.length * feed.pages"
+  [pageSize]="feed.result.length"
+  (page)="pageChanged($event)">
+</mat-paginator>

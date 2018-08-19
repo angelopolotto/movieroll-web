@@ -1,0 +1,35 @@
+export const errors = [
+    {
+        languageCode: 'en_US',
+        required: 'You must enter a value',
+        name: 'Not a valid name, min 3 characters',
+        email: 'You must select one',
+        password: 'Not a valid password, min 6 characters',
+        theme: 'You must select a theme',
+        language: 'You must select a language',
+        noInternet: 'No Internet Connection, please, try again',
+        generic: 'Something went wrong, please, try again',
+    },
+    {
+        languageCode: 'pt_br',
+        required: 'Você precisa digitar um valor',
+        name: 'Nome não válido, precisa ter ao menos 3 letras',
+        email: 'Você precisa selecionar uma opção',
+        password: 'senha não válida, precisa ter ao menos 6 caracteres',
+        theme: 'Você precisa selecionar um tema',
+        language: 'Você precisa selecionar uma lingua',
+        noInternet: 'Sem conexão com a internet, por favor, tente mais tarde',
+        generic: 'Algo deu erro, por favor, tente mais novamente',
+    },
+    {
+        languageCode: 'es_ar',
+        required: 'You must enter a value',
+        name: 'Not a valid name, min 3 characters',
+        email: 'You must select one',
+        password: 'Not a valid password, min 6 characters',
+        theme: 'You must select a theme',
+        language: 'You must select a language',
+        noInternet: 'No Internet Connection, please, try later',
+        generic: 'Something went wrong, please, try again',
+    }
+];

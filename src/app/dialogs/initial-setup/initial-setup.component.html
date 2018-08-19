@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Please, choose your options before continue</h2>
+<mat-dialog-content>
+  <form [formGroup]="initialSetupForm" class="form-container">
+    <mat-form-field>
+      <mat-select placeholder="Choose a theme" [formControlName]="'theme'"
+                  (selectionChange)="themeService.onSetTheme($event.value)">
+        <mat-option *ngFor="let theme of themeService.themes" [value]="theme.value">
+          {{theme.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="initialSetupForm.get('theme').invalid">
+        {{formErrorHandler.getSelectThemeErrorMessage(initialSetupForm)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+    <mat-select placeholder="Choose you language and region" [formControlName]="'language'"
+                [errorStateMatcher]="formErrorHandler.customErrorMatcher">
+      <mat-option *ngFor="let language of supportedLanguages" [value]="language.languageCode">
+        {{language.description}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="initialSetupForm.get('language').invalid">
+      {{formErrorHandler.getSelectLanguageErrorMessage(initialSetupForm)}}
+    </mat-error>
+  </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions
+  fxLayout="column"
+  fxLayoutGap="0.5%"
+  fxLayoutAlign=" center">
+  <div fxFlex="100%">
+    <button fxFlex="100%" class="form-container"
+            mat-button mat-raised-button color="primary"
+            [disabled]="initialSetupForm.invalid"
+            (click)="okClick()">Ok</button>
+  </div>
+</mat-dialog-actions>

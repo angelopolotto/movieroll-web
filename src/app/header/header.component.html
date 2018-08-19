@@ -1,0 +1,63 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button [routerLink]="['/']">{{messageService.textsMenus.name}}</button>
+    <span class="header-spacer"></span>
+    <button mat-button *ngIf="authService.isLogged()" [routerLink]="['/user']">
+      {{messageService.textsMenus.welcome}}{{authService.userProfile.name}}
+    </button>
+
+    <div fxHide.xs>
+      <button mat-button *ngIf="!authService.isLogged()" [routerLink]="['/login']">
+        {{messageService.textsMenus.login}}
+      </button>
+      <button mat-button *ngIf="!authService.isLogged()" [routerLink]="['/register']">
+        {{messageService.textsMenus.register}}
+      </button>
+      <button mat-button *ngIf="authService.isLogged()" (click)="logoutLocalConfig()">
+        {{messageService.textsMenus.logout}}
+      </button>
+      <button mat-button *ngIf="messageService.hasSelectedLanguage()" (click)="clearLocalConfig()">
+        {{messageService.textsMenus.resetLanguage}}
+      </button>
+    </div>
+
+    <div fxShow.xs fxHide>
+      <button mat-button [matMenuTriggerFor]="menu">{{messageService.textsMenus.menu}}</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="!authService.isLogged()" [routerLink]="['/login']">
+          {{messageService.textsMenus.login}}
+        </button>
+        <button mat-menu-item *ngIf="!authService.isLogged()" [routerLink]="['/register']">
+          {{messageService.textsMenus.register}}
+        </button>
+        <button mat-menu-item *ngIf="authService.isLogged()" (click)="logoutLocalConfig()">
+          {{messageService.textsMenus.logout}}
+        </button>
+        <button mat-menu-item *ngIf="messageService.hasSelectedLanguage()" (click)="clearLocalConfig()">
+          {{messageService.textsMenus.resetLanguage}}
+        </button>
+      </mat-menu>
+    </div>
+
+      <!--<mat-menu #colorMenu="matMenu">-->
+        <!--<mat-grid-list cols="2" rowHeight="1:1">-->
+          <!--<mat-grid-tile>-->
+            <!--<button mat-menu-item class="circle-base deeppurple-button" (click)="onSetTheme('deeppurple-theme')"></button>-->
+          <!--</mat-grid-tile>-->
+          <!--<mat-grid-tile>-->
+            <!--<button mat-menu-item class="circle-base indigo-button" (click)="onSetTheme('indigo-theme')"></button>-->
+          <!--</mat-grid-tile>-->
+          <!--<mat-grid-tile>-->
+            <!--<button mat-menu-item class="circle-base pink-button" (click)="onSetTheme('pink-theme')"></button>-->
+          <!--</mat-grid-tile>-->
+          <!--<mat-grid-tile>-->
+            <!--<button mat-menu-item class="circle-base purple-button" (click)="onSetTheme('purple-theme')"></button>-->
+          <!--</mat-grid-tile>-->
+        <!--</mat-grid-list>-->
+      <!--</mat-menu>-->
+
+      <!--<button mat-button [matMenuTriggerFor]="colorMenu">-->
+        <!--Theme-->
+      <!--</button>-->
+  </mat-toolbar-row>
+</mat-toolbar>

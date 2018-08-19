@@ -1,0 +1,55 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div
+    fxFlex="80%"
+    fxFlex.xs="90%" fxFlex.md="60%" fxFlex.lg="50%"
+    fxLayout="row wrap"
+    fxLayoutGap="0.5%" fxLayoutAlign="space-around center">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="registerForm" class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="{{messageService.textsUser.name}}" formControlName="name"
+                   [errorStateMatcher]="formErrorHandler.customErrorMatcher" required>
+            <mat-error *ngIf="registerForm.get('name').invalid">{{formErrorHandler.getNameErrorMessage(registerForm)}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{messageService.textsUser.email}}" formControlName="email"
+                   [errorStateMatcher]="formErrorHandler.customErrorMatcher" required>
+            <mat-error *ngIf="registerForm.get('email').invalid">{{formErrorHandler.getEmailErrorMessage(registerForm)}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="{{messageService.textsUser.theme}}" [formControlName]="'theme'"
+                        (selectionChange)="themeService.onSetTheme($event.value)">
+              <mat-option *ngFor="let theme of themeService.themes" [value]="theme.value">
+                {{theme.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.get('theme').invalid">
+              {{formErrorHandler.getSelectThemeErrorMessage(registerForm)}}
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="{{messageService.textsUser.language}}" [formControlName]="'language'"
+                        [errorStateMatcher]="formErrorHandler.customErrorMatcher">
+              <mat-option *ngFor="let language of supportedLanguages" [value]="language.languageCode">
+                {{language.description}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.get('language').invalid">
+              {{formErrorHandler.getSelectLanguageErrorMessage(registerForm)}}
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{messageService.textsUser.password}}" formControlName="password"
+                   [errorStateMatcher]="formErrorHandler.customErrorMatcher" [type]="show ? 'text' : 'password'" required>
+            <mat-icon matSuffix (click)="toggleShow()">{{show ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="registerForm.get('password').invalid">{{formErrorHandler.getPasswordErrorMessage(registerForm)}}</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" [disabled]="registerForm.invalid" (click)="update()">
+            {{messageService.textsUser.update}}
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

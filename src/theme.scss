@@ -1,0 +1,29 @@
+//Switch themes in angular material 5
+//https://stackoverflow.com/a/47759439/7468664
+//https://stackblitz.com/edit/dynamic-material-theming?file=theme.scss
+
+//How to get primary or accent color of currently applied theme in angular material 2
+//https://stackoverflow.com/a/50034890/7468664
+
+@import '../node_modules/@angular/material/theming';
+@import "styles/variables";
+@include mat-core();
+
+.deeppurple-theme {
+  @include deeppurple-theme;
+}
+
+.indigo-theme {
+  @include indigo-theme;
+}
+
+.pink-theme {
+  @include pink-theme;
+}
+
+.purple-theme {
+  @include purple-theme;
+}
+
+//default theme
+@include deeppurple-theme;

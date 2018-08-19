@@ -1,0 +1,9 @@
+<mat-card class="custom-mat-card" [style.background]="cardColor">
+  <button mat-button fxFill (click)="onClick(genre)">
+    <strong>
+      {{media_type === 'movie' ? messageServiece.textsDashboard.media_type.movie :
+      messageServiece.textsDashboard.media_type.tv}}:
+    </strong>
+    {{genre.name}}
+  </button>
+</mat-card>

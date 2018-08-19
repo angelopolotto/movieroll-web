@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="center"
+     class="layout-center-vertical">
+  <!--container row-->
+  <div
+    fxFlex="80%"
+    fxFlex.xs="90%" fxFlex.md="60%" fxFlex.lg="50%"
+    fxLayout="row wrap"
+    fxLayoutGap="0.5%" fxLayoutAlign="space-around center">
+    <mat-card>
+      <mat-card-header [style.background-color]="themeService.primary">
+        <h1>{{messageService.textsLogin.welcome}}</h1>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form [formGroup]="loginForm" class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="{{messageService.textsLogin.email}}" formControlName="email"
+                   [errorStateMatcher]="formErrorHandler.customErrorMatcher" required>
+            <mat-error *ngIf="loginForm.get('email').invalid">{{formErrorHandler.getEmailErrorMessage(loginForm)}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="{{messageService.textsLogin.password}}" formControlName="password"
+                   [errorStateMatcher]="formErrorHandler.customErrorMatcher" [type]="show ? 'text' : 'password'" required>
+            <mat-icon matSuffix (click)="toggleShow()">{{show ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="loginForm.get('password').invalid">{{formErrorHandler.getPasswordErrorMessage(loginForm)}}</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="login()" [disabled]="loginForm.invalid">
+            {{messageService.textsLogin.login}}
+          </button>
+          <p align="center">{{messageService.textsLogin.createAccount}}
+            <a [routerLink]="['/register']">{{messageService.textsLogin.register}}</a>
+          </p>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

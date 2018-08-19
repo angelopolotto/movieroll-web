@@ -1,0 +1,33 @@
+.main-div {
+  height:100vh;
+}
+
+.content-div {
+  width: 80%;
+  margin: auto;
+  height: 85%;
+}
+
+::ng-deep .center-spinner {
+  display: flex;
+  height: 100%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  background-color: black; /*older browsers*/
+  background-color: rgba(0,0,0,.2); /*new ones will overwrite the 'black' declaration with rgba*/
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*opacity:0.2; no opacity!*/
+  z-index: 100;
+}
+
+//::ng-deep .mat-dialog-container {
+  //background-color: transparent !important;
+//}

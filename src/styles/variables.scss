@@ -1,0 +1,75 @@
+@import '../../node_modules/@angular/material/theming';
+
+//theme deeppurple-amber
+@mixin deeppurple-theme {
+  $primaryThemeDeeppurple: mat-palette($mat-deep-purple);
+  $accentThemeDeeppurple: mat-palette($mat-amber);
+  $warnThemeDeeppurple: mat-palette($mat-red);
+  $deeppurpleTheme: mat-light-theme($primaryThemeDeeppurple, $accentThemeDeeppurple, $warnThemeDeeppurple);
+  $primaryColor: mat-color($primaryThemeDeeppurple) !global;
+  $accentColor: mat-color($accentThemeDeeppurple) !global;
+  @include angular-material-theme($deeppurpleTheme);
+}
+//theme indigo-pink
+@mixin indigo-theme {
+  $primaryThemeIndigo: mat-palette($mat-indigo);
+  $accentThemeIndigo: mat-palette($mat-pink);
+  $warnThemeIndigo: mat-palette($mat-red);
+  $indigoTheme: mat-light-theme($primaryThemeIndigo, $accentThemeIndigo, $warnThemeIndigo);
+  $primaryColor: mat-color($primaryThemeIndigo) !global;
+  $accentColor: mat-color($accentThemeIndigo) !global;
+  @include angular-material-theme($indigoTheme);
+}
+
+//theme pink-bluegrey
+@mixin pink-theme {
+  $primaryThemePink: mat-palette($mat-pink);
+  $accentThemePink: mat-palette($mat-blue-grey);
+  $warnThemePink: mat-palette($mat-red);
+  $pinkTheme: mat-light-theme($primaryThemePink, $accentThemePink, $warnThemePink);
+  $primaryColor: mat-color($primaryThemePink) !global;
+  $accentColor: mat-color($accentThemePink) !global;
+  @include angular-material-theme($pinkTheme);
+}
+
+//theme purple-green
+@mixin purple-theme {
+  $primaryThemePurple: mat-palette($mat-purple);
+  $accentThemePurple: mat-palette($mat-green);
+  $warnThemePurple: mat-palette($mat-red);
+  $purpleTheme: mat-light-theme($primaryThemePurple, $accentThemePurple, $warnThemePurple);
+  $primaryColor: mat-color($primaryThemePurple) !global;
+  $accentColor: mat-color($accentThemePurple) !global;
+  @include angular-material-theme($purpleTheme);
+}
+
+@mixin card-big-header {
+  ::ng-deep .mat-card-header {
+    padding: 5px !important;
+    justify-content: center;
+  }
+
+  ::ng-deep .mat-card {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .mat-card-content {
+    padding: 20px !important;
+  }
+
+  .mat-card-header h1 {
+    color: $white-87-opacity;
+  }
+}
+
+@mixin center-vertical {
+  .layout-center-vertical {
+    height: 85%;
+  }
+}
+
+@mixin form-one-field-line {
+  .form-container > * {
+    width: 100%;
+  }
+}

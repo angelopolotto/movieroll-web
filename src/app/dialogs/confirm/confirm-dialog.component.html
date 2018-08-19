@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>{{data.content}}</mat-dialog-content>
+<mat-dialog-actions
+  fxLayout="column"
+  fxLayoutGap="0.5%"
+  fxLayoutAlign=" center">
+  <div fxFlex="100%">
+    <button fxFlex="100%" class="form-container"
+            mat-button mat-raised-button color="primary"
+            (click)="yesClick()">{{data.yesText}}</button>
+  </div>
+  <div fxFlex="100%">
+    <button class="form-container"
+            mat-button mat-raised-button color="primary"
+            (click)="noClick()">{{data.noText}}</button>
+  </div>
+  <div fxFlex="100%">
+    <button class="form-container"
+          mat-button mat-raised-button color="primary"
+          (click)="cancelClick()">{{data.cancelText}}</button>
+  </div>
+</mat-dialog-actions>

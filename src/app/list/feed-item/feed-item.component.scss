@@ -1,0 +1,39 @@
+mat-card {
+  max-width: 100%;
+  margin: 10px;
+}
+
+mat-card-header {
+  height: 100px;
+}
+
+mat-card-title {
+  margin: 0 0 10px 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding: 0 0 0 15px;
+}
+
+li {
+  list-style-type: square;
+  margin: 0 0 10px 0;
+}

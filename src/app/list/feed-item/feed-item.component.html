@@ -1,0 +1,135 @@
+<mat-card>
+  <mat-card-content>
+    <!--content container-->
+    <div
+      fxLayout="row wrap"
+      fxLayoutGap="0.5%"
+      fxLayoutAlign="space-between start">
+      <!--image left container-->
+      <div fxFlex="40%" fxFlex.xs="100%" fxFlexAlign="center">
+        <img
+          src="{{feedItem.poster_path !== null ? 'http://image.tmdb.org/t/p/w154' + feedItem.poster_path
+                                                : 'assets/not_found.png'}}"
+          alt="poster {{feedItem.title}}">
+      </div>
+      <!--content right container-->
+      <div
+        fxLayout="column"
+        fxLayoutAlign="start none"
+        fxFlex="50%" fxFlex.xs="100%">
+        <!--first in line content Title-->
+        <h2 fxFlex="100%">{{feedItem.title}}</h2>
+        <div
+          fxLayoutAlign="space-between none"
+          fxLayout="row">
+          <div fxFlex="33%">
+            <mat-card-subtitle>
+              <strong>{{messageService.textsDashboard.genres}}</strong><br>
+              {{feedItem.genres.join(', ')}}
+            </mat-card-subtitle>
+          </div>
+          <div fxFlex="33%">
+            <mat-card-subtitle>
+              <strong>{{messageService.textsDashboard.typesName.typesName}}</strong><br>
+              {{feedItem.status_type}}
+            </mat-card-subtitle>
+          </div>
+          <div fxFlex="33%"
+               dir="ltr">
+            <mat-card-subtitle>
+              <strong>{{messageService.textsDashboard.release_date}}</strong><br>
+              {{feedItem.release_date | date}}
+            </mat-card-subtitle>
+          </div>
+        </div>
+        <!--secound in line content-->
+        <div
+          fxLayoutAlign="space-between none"
+          fxLayout="row">
+          <div fxFlex="33%">
+            <mat-card-subtitle>
+              <strong>{{messageService.textsDashboard.media_type.media_type}}</strong><br>
+              {{messageService.textsDashboard.media_type[feedItem.media_type]}}
+            </mat-card-subtitle>
+          </div>
+          <div fxFlex="33%">
+            <mat-card-subtitle>
+              <strong>{{messageService.textsDashboard.vote_average}}</strong><br>
+              {{feedItem.vote_average}}
+            </mat-card-subtitle>
+          </div>
+          <div fxFlex="33%">
+            <mat-card-subtitle>
+              <strong>{{messageService.textsDashboard.popularity}}</strong><br>
+              {{feedItem.popularity}}
+            </mat-card-subtitle>
+          </div>
+        </div>
+        <!--column content-->
+        <div
+          fxLayout="column"
+          fxLayoutGap="5%"
+          fxLayoutAlign="space-between start">
+          <div fxFlex="100%">
+            <h3>{{messageService.textsDashboard.overview}}</h3>
+            <p>{{feedItem.overview}}</p>
+          </div>
+          <div fxFlex="100%" *ngIf="feedItem.videos">
+            <h3>{{messageService.textsDashboard.videos}}</h3>
+            <ul>
+              <li *ngFor="let video of feedItem.videos">
+                <a href="{{video.link}}"
+                   (onClick)="gtagEvent(video.title, video.link, 'media_video')"
+                   target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  {{video.title}}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div fxFlex="100%" *ngIf="feedItem.news">
+            <h3>{{messageService.textsDashboard.news}}</h3>
+            <ul>
+              <li *ngFor="let new of feedItem.news">
+                <a href="{{new.link}}"
+                   (onClick)="gtagEvent(new.title, new.link, 'media_news')"
+                   target="_blank">
+                  <i class="fas fa-external-link-alt"></i>
+                  {{new.title}}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div fxFlex="100%" *ngIf="feedItem.homepage">
+            <h3>
+              <a href="{{feedItem.homepage}}"
+                 (onClick)="gtagEvent('media homepage', feedItem.homepage, 'media_homepage')"
+                    target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                {{messageService.textsDashboard.homepage}}
+              </a>
+            </h3>
+          </div>
+          <div fxFlex="100%" *ngIf="feedItem.imdb">
+            <h3>
+              <a href="{{feedItem.imdb}}"
+                 (onClick)="gtagEvent('media IMDB', feedItem.imdb, 'media_imdb')"
+                   target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                {{messageService.textsDashboard.imdb}}
+              </a>
+            </h3>
+
+          </div>
+          <div fxFlex="100%"
+               fxFlexAlign="center">
+            <button mat-raised-button color="primary"
+                    (click)="addToFavorites(feedItem)">
+              {{favButtonText === null ? messageService.textsDashboard.addWatchList : favButtonText}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

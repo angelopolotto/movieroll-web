@@ -1,0 +1,22 @@
+<mat-tab-group backgroundColor="primary"
+               [selectedIndex]="selectedIndex">
+  <mat-tab label="{{messageService.textsDashboard.discoverTab}}">
+    <app-discover (OnResult)="result($event.media_type, $event.genre)"></app-discover>
+  </mat-tab>
+  <!--<mat-tab label="{{messageService.textsDashboard.feedTab}}">-->
+    <!--<app-feed></app-feed>-->
+  <!--</mat-tab>-->
+  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="messageService.textsDashboard.media_type[tab.media_type]
+                                                                + ' ' + tab.genre.name">
+    <div fxLayout="row wrap" fxLayoutAlign="center none">
+      <button class="buttom-margin"
+              fxFlex="80%"
+              fxFlex.xs="90%" fxFlex.md="60%" fxFlex.lg="50%"
+              color="warn" mat-raised-button
+              (click)="removeTab(index)">
+        {{messageService.textsDashboard.closeTab}}
+      </button>
+    </div>
+    <app-result [tab]="tab"></app-result>
+  </mat-tab>
+</mat-tab-group>

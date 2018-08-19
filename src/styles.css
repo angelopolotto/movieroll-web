@@ -1,0 +1,28 @@
+/* You can showError global styles to this file, and also import other style files */
+html, body {
+  height: 100vh;
+  margin:0;
+  padding:0;
+  overflow: auto;
+
+  background-image: url('./assets/background.jpg');
+  background-repeat: initial;
+  background-size: contain;
+  background-position: center;
+
+  /*background-size: contain;*/
+  /*background: url('./assets/background.jpg') no-repeat center;*/
+  /*background-color: #eee;*/
+  /*background: linear-gradient(rgba(242, 116, 76, 0.5), rgba(76, 116, 242, 0.5)),*/
+              /*url('./assets/background.jpg') no-repeat center*/
+  /*background: linear-gradient(rgba(242, 116, 78, 0.5), rgba(246, 135, 91, 0.5)),*/
+  /*url('./assets/background.jpg') no-repeat center*/
+}
+
+.background-red {
+background-color: rgb(153, 50, 50);
+}
+
+.background-green {
+background-color: rgb(29, 102, 29);
+}
